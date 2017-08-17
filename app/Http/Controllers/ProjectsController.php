@@ -35,7 +35,10 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
+        $request->user()->projects()->create([
+            'name'=>$request->name,
+            'thumbnail'=>null
+        ]);
     }
 
     /**
