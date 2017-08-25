@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\ProjectRepository;
 
 class ProjectsController extends Controller
 {
+
+    private $projectRepository;
+
+
+    public function __construct( ProjectRepository $projectRepository )
+    {
+        $this->projectRepository = $projectRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,11 +45,13 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         //
-        $request->user()->projects()->create([
-            'name'=>$request->name,
-            'thumbnail'=>null
-        ]);
+        $this->projectRepository->createProject($request);
+
+        return ('创建成功！');
+
     }
+
+
 
     /**
      * Display the specified resource.
