@@ -23,9 +23,25 @@
         </whitelist>
     </filter>
     <php>
-        <env name="APP_ENV" value="testing"/>
+        <env name="APP_ENV" value="phpunit"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
     </php>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+            <exclude>
+                <directory suffix=".php">./app/Modules/*</directory>
+                <!--<file>*.blade.php</file>-->
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="./tests/reports/html" lowUpperBound="35"
+             highLowerBound="70"/>
+        <log type="coverage-clover" target="./tests/reports/phpunit.coverage.xml"/>
+        <log type="junit" target="./tests/reports/xml/phpunit.xml" logIncompleteSkipped="false"/>
+        <log type="coverage-xml" target="./tests/reports/xml"/>
+    </logging>
 </phpunit>
