@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Packages\MeiZi\Services\MeiZiService;
+use Guzzle\Http\Client;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +23,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( MeiZiService $meiZiService)
     {
+
+       $meiZiService->getTheFirstPictureUrl("http://i.meizitu.net/thumbs/2017/06/93907_05a48_236.jpg");
         return view('home');
     }
 
