@@ -35,6 +35,7 @@ class ProjectRepository
      */
     public function createProject( Request $request )
     {
+
         $request->user()->projects()->create([
             'name'=>$request->name,
             'thumbnail'=>$this->thumbnail($request)
