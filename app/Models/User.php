@@ -31,7 +31,7 @@ class User extends Authenticatable
     public function projects()
     {
         //$user->projects
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Project::class,'user_id','id');
     }
 
     public function tasks()

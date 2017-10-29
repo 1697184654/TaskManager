@@ -8350,3 +8350,15 @@ button.close {
   }
 }
 
+.thumbnail {
+  padding: 0;
+}
+
+.thumbnail .caption {
+  padding: 0;
+}
+
+.thumbnail .caption a {
+  color: black;
+}
+

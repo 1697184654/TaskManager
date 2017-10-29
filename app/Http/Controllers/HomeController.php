@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Packages\MeiZi\Services\MeiZiService;
-use Guzzle\Http\Client;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,13 +25,16 @@ class HomeController extends Controller
      */
     public function index( MeiZiService $meiZiService)
     {
-
        $meiZiService->getTheFirstPictureUrl("http://i.meizitu.net/thumbs/2017/06/93907_05a48_236.jpg");
         return view('home');
     }
 
     public function welcome()
     {
-        return view('welcome');
+        $projects = Auth::user()->projects;
+        $param = compact(
+            'projects'
+        );
+        return view('welcome',$param);
     }
 }
