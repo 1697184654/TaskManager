@@ -80,5 +80,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+     @yield('customJS');
 </body>
 </html>
