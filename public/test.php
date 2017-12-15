@@ -1,2 +1,2 @@
 <?php
-echo 'xxxxxxxxfsdfdsxxxx';
+echo 'test';
