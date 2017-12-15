@@ -1,2 +1,2 @@
 <?php
-echo 'test.phpfsdfdsfds'
+echo 'test.phpfsdfdsfds通过'
